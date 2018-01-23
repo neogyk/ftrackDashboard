@@ -1,0 +1,1 @@
+<div *ngFor="let date of nleDate[row.key], j as index" *ngIf="date[0] <= i <= date[1]">{{ nleStatus[row][j] }}

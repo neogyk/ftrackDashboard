@@ -1,0 +1,78 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+
+<div class="container">
+
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+      <li><a href="#"><button type="button" class="btn btn-primary" (click)="generateReport()">Generate Report</button></a></li>
+      <li><a><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Statuses: {{ selectedStatus }}
+    <span class="caret"></span></button>
+    <ul   class="dropdown-menu">
+      <li *ngFor="let status of statusNames, index as i;" (click)="selectStatus($event)"><a href="#">{{ status }}</a></li>
+    </ul>
+  </div>
+      </a></li>
+          <li><a href="#"><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Project Names : {{ selectedProject}}
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li  *ngFor="let projectName of projectList, index as i;" (click)="selectProject($event)"><a href="#">{{ projectName }}</a></li >
+    </ul>
+
+  </div></a></li>
+      <li><a href="#"><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">StartDate: {{ selectedStatus }}
+    <span class="caret"></span></button>
+    <ul   class="dropdown-menu">
+      <li *ngFor="let status of statusNames, index as i;" (click)="selectStatus($event)"><a href="#">{{ status }}</a></li>
+    </ul>
+  </div></a></li>
+        <li><a href="#"><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">StartDate: {{ selectedStatus }}
+    <span class="caret"></span></button>
+    <ul   class="dropdown-menu">
+      <li *ngFor="let status of statusNames, index as i;" (click)="selectStatus($event)"><a href="#">{{ status }}</a></li>
+    </ul  >
+  </div></a></li>
+    </ul>
+  </div>
+</nav>
+
+
+        <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+              <th>NLE</th>
+            <th *ngFor="let colName of columnsNames">{{colName}}</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor = "let row of nleList">
+            <td>{{ row }}</td>
+
+         <td *ngFor = "let cell of columnsNames, let i = index">
+             <div *ngFor="let date of nleDate[row]">
+                 <div *ngIf="date[0]<=i && i<=date[1]" class={{nleStatus[row][i]}}>{{nleStatus[row][i]}}</div>
+             </div>
+
+         </td>
+
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+</div>
+
+<div id="visualization"></div>
+
