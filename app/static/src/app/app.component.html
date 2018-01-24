@@ -20,20 +20,29 @@
     </ul>
 
   </div></a></li>
-      <li><a href="#"><div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">StartDate: {{ selectedStatus }}
-    <span class="caret"></span></button>
-    <ul   class="dropdown-menu">
-      <li *ngFor="let status of statusNames, index as i;" (click)="selectStatus($event)"><a href="#">{{ status }}</a></li>
-    </ul>
-  </div></a></li>
         <li><a href="#"><div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">StartDate: {{ selectedStatus }}
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Users Names : {{ selectedUser}}
     <span class="caret"></span></button>
-    <ul   class="dropdown-menu">
-      <li *ngFor="let status of statusNames, index as i;" (click)="selectStatus($event)"><a href="#">{{ status }}</a></li>
-    </ul  >
+    <ul class="dropdown-menu">
+      <li  *ngFor="let userName of userList, index as i;" (click)="selectUser($event)"><a href="#">{{ userName }}</a></li >
+    </ul>
+
   </div></a></li>
+
+
+        <li><a href="#">
+            Start Date
+            <div class="datepicker-container">
+                <ng-datepicker [(ngModel)]="start_date" [options]="options"></ng-datepicker>
+            </div>
+        </a></li>
+        <li><a href="#">
+            End Date
+            <div class="datepicker-container">
+        <ng-datepicker [(ngModel)]="end_date" [options]="options"></ng-datepicker>
+      </div>
+        </a></li>
+
     </ul>
   </div>
 </nav>

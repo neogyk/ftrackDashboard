@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import 'hammerjs';
 import { RouterModule, Routes } from '@angular/router';
-
+import { NgDatepickerModule } from 'ng2-datepicker';
 
 const appRoutes: Routes = [
     {
@@ -18,9 +18,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent
+
   ],
   imports: [
     BrowserModule,
+    NgDatepickerModule,
     BrowserAnimationsModule,
     HttpClientModule,
 

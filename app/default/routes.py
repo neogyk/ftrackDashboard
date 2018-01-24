@@ -28,11 +28,11 @@ def colors(n):
 
 
 def connect_to_ftrack():
-    session = ftrack_api.Session(
-        server_url='https://ftrack.stb.ua',
-        api_key='0617dce2-9c66-11e7-b2bd-005056852c83',
-        api_user='developer'
-    )
+session = ftrack_api.Session(
+    server_url='https://ftrack.stb.ua',
+    api_key='0617dce2-9c66-11e7-b2bd-005056852c83',
+    api_user='developer'
+)
     return session
 
 
@@ -46,12 +46,12 @@ def query_projects(session):
 
 def query_tasks(session, project_name="All", status_name="All"):
 
-    now = datetime.datetime.now()
-    end = now + datetime.timedelta(days=30)
-    _now = "{0}-{1}-{2}".format(now.year, now.month, now.day)
-    _end = "{0}-{1}-{2}".format(end.year, end.month, end.day)
+now = datetime.datetime.now()
+end = now + datetime.timedelta(days=30)
+_now = "{0}-{1}-{2}".format(now.year, now.month, now.day)
+_end = "{0}-{1}-{2}".format(end.year, end.month, end.day)
     if project_name == "All" and status_name == "All":
-        tasks = session.query('select id, status.name, start_date, end_date, custom_attributes from Task where custom_attributes any (key is "nle") and end_date >= ' + _now + ' and end_date <' + _end).all()
+tasks = session.query('select id, status.name, start_date, end_date, custom_attributes from Task where custom_attributes any (key is "nle") and end_date >= ' + _now + ' and end_date <' + _end).all()
     elif project_name == "All" and status_name != "All":
         tasks = session.query('select id, status.name, start_date, end_date, custom_attributes from Task where status.name is ' + status_name + ' and custom_attributes any (key is "nle") and end_date >= ' + _now + " and end_date <" + _end).all()
     elif project_name != "All" and status_name == "All":
@@ -96,6 +96,7 @@ def query_users(session):
 
 @default.route('/')
 def home():
+    print('/')
     return default.send_static_file('index.html')
 
 @default.route('/get_users_names')

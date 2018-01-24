@@ -1,6 +1,8 @@
-.Not_started {background-color:#2b542c;}
-.Completed {background-color:#eb9316;}
-.Approved {background-color:#2aabd2;}
-.In_progress {background-color:#8fcafe;}
-.vis-timeline {visibility: visible;}
-.vis-panel  {visibility: visible;}
+.Not started{background-color:#0000ff;}
+.Completed{background-color:#eb9316;}
+.Approved{background-color:#ab47bc;}
+.
+.In_progress{background-color:#8fcafe;}
+.vis-timeline{visibility: visible;}
+.vis-bottom{visibility: visible;}
+
